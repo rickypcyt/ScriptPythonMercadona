@@ -1,0 +1,6 @@
+primero es que usamos el extract emails para extraer del gmail y descargar los pdfs y eso esta en la carpeta descargas mail.
+
+Usamos pdf2txt.py para convertir de pdf a texto y eso genera la carpeta pdf to txt
+
+AnalyzeTxts.py genera output que es el resumen mensual de gastos de las facturas.
+
