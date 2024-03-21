@@ -1,0 +1,64 @@
+
+Mes: December | Año: 2023
++------------------------------+----------+---------+
+|         Descripción          | Cantidad | Importe |
++------------------------------+----------+---------+
+|      1LECHE ENTERA 0,91      |    1     |  0,91   |
+|     1PAT. CLASSICAS 1,75     |    1     |  1,75   |
+|  1QUESO BLANCO NATURAL 2,74  |    1     |  2,74   |
+|     1MILKA CON OREO 1,30     |    1     |  1,30   |
+|    1PAPEL HUMEDO WC 1,55     |    1     |  1,55   |
+| 2SPRITE FRESH LATA 0,53 1,06 |    2     |  0,53   |
+|  1ATÚN CLARO OLIVA PK6 5,25  |    1     |  5,25   |
+|   16 HUEVOS CAMPEROS 1,59    |    16    |  1,59   |
+|     1LS ENS GRANDE 5,00      |    1     |  5,00   |
+|   1PATATA MALLA 2 KG 3,75    |    1     |  3,75   |
+|  1QUESO BLANCO NATURAL 2,74  |    1     |  2,74   |
+|        1PANCETA 3,79         |    1     |  3,79   |
+|     1TÉ LIMÓN 1,5L 0,95      |    1     |  0,95   |
+|      1AGUA CON GAS 0,38      |    1     |  0,38   |
+|      1LECHE ENTERA 0,91      |    1     |  0,91   |
+|        1,400 kg 1,45         |  1,400   |  1,40   |
+|      1GAJO RÚSTICA 1,35      |    1     |  1,35   |
+|  1SALSA DE SOJA SALADA 1,45  |    1     |  1,45   |
+|     1BRONCHALES 6L 1,23      |    1     |  1,23   |
+|  1ZUMO DE NARANJA EXPR 1,75  |    1     |  1,75   |
+|     1SALSA TABASCO 3,75      |    1     |  3,75   |
+|  1FILETE PECHUGA FINO 6,20   |    1     |  6,20   |
+|  1CERVEZA CLASICA LATA 0,31  |    1     |  0,31   |
+|      2CERVEZA 0,82 1,64      |    2     |  0,82   |
+|        1CERVEZA 0,69         |    1     |  0,69   |
+|     1BOLSA PLASTICO 0,15     |    1     |  0,15   |
+|   1ROLLO HOGAR DOBLE 2,20    |    1     |  2,20   |
+|      1BEBER F SILVES 0       |    1     |  1,45   |
+|         1UVA ROJA S          |    1     |  1,96   |
+|     1BOLSA PLASTICO 0,15     |    1     |  0,15   |
+|     1GRIEGO NATURAL 2,45     |    1     |  2,45   |
+|  1PIÑA PELADA NATURAL 2,99   |    1     |  2,99   |
+|      1CERDO TACOS 3,65       |    1     |  3,65   |
+|  1Q. LONCHAS EDAM TIER 2,00  |    1     |  2,00   |
+|   1PATATAS FRITAS SAL 1,99   |    1     |  1,99   |
+|   2LECHE ENTERA 0,91 1,82    |    2     |  0,91   |
+|   1SPRITE FRESH LATA 0,53    |    1     |  0,53   |
+|     1LS ENS GRANDE 5,00      |    1     |  5,00   |
+|          1COLA 0,85          |    1     |  0,85   |
+|     1BOLSA PLASTICO 0,15     |    1     |  0,15   |
+|  2BOLSA PLASTICO 0,15 0,30   |    2     |  0,15   |
+|    1ISOTONICO LIMON 1,95     |    1     |  1,95   |
+|     1TÉ LIMÓN 1,5L 0,95      |    1     |  0,95   |
+|    1ARROZ VAPORIZADO 1,54    |    1     |  1,54   |
+|  1ATÚN CLARO OLIVA PK6 5,25  |    1     |  5,25   |
+|     1PAT. CLASSICAS 1,75     |    1     |  1,75   |
+|  1QUESO BLANCO NATURAL 2,74  |    1     |  2,74   |
+|    1GUACAMOLE 200 G 1,75     |    1     |  1,75   |
+|           1HELADO            |    1     |  2,80   |
+|      1LOMO GRUESO 4,86       |    1     |  4,86   |
+|   1FILETE CABEZA LOMO 4,39   |    1     |  4,39   |
+|        1UVA BLANCA S         |    1     |  2,84   |
+|        0,344 kg 1,99         |  0,344   |  0,34   |
+|     1LS ENS GRANDE 5,00      |    1     |  5,00   |
+|         1PIZZA JAMON         |    1     |  3,50   |
+|      1AGUA MINERAL 0,79      |    1     |  0,79   |
+|       2COLA 0,85 1,70        |    2     |  0,85   |
+|     1MAYONESA 460ML 1,35     |    1     |  1,35   |
++------------------------------+----------+---------+

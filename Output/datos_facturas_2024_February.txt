@@ -1,0 +1,124 @@
+
+Mes: February | Año: 2024
++--------------------------------+----------+---------+
+|          Descripción           | Cantidad | Importe |
++--------------------------------+----------+---------+
+|       1BEBER F SILVES 0        |    1     |  1,45   |
+|    1GALLETITAS SALADAS 1,30    |    1     |  1,30   |
+|          1TROPICAL S           |    1     |  0,70   |
+|     1MIX FRUTOS ROJOS 1,54     |    1     |  1,54   |
+|   1COLIFLOR, BRÓC Y ZAN 2,10   |    1     |  2,10   |
+|     1PECHUGA FAMILIAR 7,64     |    1     |  7,64   |
+|         1,264 kg 1,45          |  1,264   |  1,26   |
+|   112 HUEVOS SUPER GRAN 3,25   |   112    |  3,25   |
+|       112 HUEVOS GRANDES       |   112    |  2,20   |
+|          1TROPICAL S           |    1     |  0,70   |
+|    1QUITAGRASA CITRICO 1,45    |    1     |  1,45   |
+|   14 RECIPIENTES RECT. 2,40    |    14    |  2,40   |
+|            1HELADO             |    1     |  2,85   |
+| 2LECHE DESN. PROT 1L 1,25 2,50 |    2     |  1,25   |
+|          1NACHOS 0,90          |    1     |  0,90   |
+|         1,506 kg 1,45          |  1,506   |  1,50   |
+|   1JAMON C.CALIDAD EXTR 2,04   |    1     |  2,04   |
+|       1GRIEGO NATURAL P        |    1     |  1,60   |
+|      1BOLSA PLASTICO 0,15      |    1     |  0,15   |
+|   1PAN BLANCO FAMILIAR 1,25    |    1     |  1,25   |
+|          2TROPICAL S           |    2     |  0,70   |
+|         1BEBER FRESA 0         |    1     |  1,45   |
+|      1SALSA MEXICANA 1,25      |    1     |  1,25   |
+|     1ARROZ VAPORIZADO 1,54     |    1     |  1,54   |
+|          2TROPICAL S           |    2     |  0,70   |
+|   1QUESO BLANCO NATURAL 2,74   |    1     |  2,74   |
+|     1PECHUGA FAMILIAR 7,49     |    1     |  7,49   |
+|      1BOLSA PLASTICO 0,15      |    1     |  0,15   |
+|      1PAT. CLASSICAS 1,75      |    1     |  1,75   |
+|    1ROLLO HOGAR DOBLE 2,20     |    1     |  2,20   |
+|         1,538 kg 1,45          |  1,538   |  1,53   |
+|     1PECHUGA FAMILIAR 7,23     |    1     |  7,23   |
+|   1JAMON JUGOSO LONCHAS 1,82   |    1     |  1,82   |
+|     1Q RALLADO FUNDIR 2,05     |    1     |  2,05   |
+|          3TROPICAL S           |    3     |  0,70   |
+|       1BEBER F SILVES 0        |    1     |  1,45   |
+|     1GUACAMOLE 200 G 1,75      |    1     |  1,75   |
+| 3LECHE DESN. PROT 1L 1,25 3,75 |    3     |  1,25   |
+|   2BOLSA PLASTICO 0,15 0,30    |    2     |  0,15   |
+|   112 HUEVOS SUPER GRAN 3,25   |   112    |  3,25   |
+|       112 HUEVOS GRANDES       |   112    |  2,20   |
+|     1PECHUGA FAMILIAR 7,79     |    1     |  7,79   |
+|     1GUACAMOLE 500 GR 3,59     |    1     |  3,59   |
+|     1MIX FRUTOS ROJOS 1,54     |    1     |  1,54   |
+|     1COMINOS MOLIDOS 1,20      |    1     |  1,20   |
+|         1KETCHUP 1,30          |    1     |  1,30   |
+|      1SALSA RANCHERA 1,35      |    1     |  1,35   |
+| 2LECHE DESN. PROT 1L 1,25 2,50 |    2     |  1,25   |
+|       1Q.UNTAR AZUL 1,68       |    1     |  1,68   |
+|          1NACHOS 0,90          |    1     |  0,90   |
+|       1GRIEGO NATURAL P        |    1     |  1,60   |
+|          2TROPICAL S           |    2     |  0,70   |
+|         0,184 kg 2,29          |  0,184   |  0,18   |
+|    4BRONCHALES 6L 1,26 5,04    |    4     |  1,26   |
+|      1BOLSA PLASTICO 0,15      |    1     |  0,15   |
+|   1GALLETAS MANTEQUILLA 2,85   |    1     |  2,85   |
+|   1QUESO BLANCO NATURAL 2,74   |    1     |  2,74   |
+|   1JAMON JUGOSO LONCHAS 1,82   |    1     |  1,82   |
+|          2TROPICAL S           |    2     |  0,70   |
+|         1,450 kg 1,45          |  1,450   |  1,45   |
+|       1AVENA MOLIDA 1,11       |    1     |  1,11   |
+|         1CRACKERS 1,95         |    1     |  1,95   |
+|       3CERVEZA 0,82 2,46       |    3     |  0,82   |
+|     1ARROZ VAPORIZADO 1,54     |    1     |  1,54   |
+|   1QUESO RALLADO GOUDA 1,44    |    1     |  1,44   |
+|     1PECHUGA FAMILIAR 7,25     |    1     |  7,25   |
+|          1PIZZA JAMON          |    1     |  3,50   |
+|          2TROPICAL S           |    2     |  0,70   |
+|          1NACHOS 0,90          |    1     |  0,90   |
+|    1CHAMPÚ AC CÍTRICO 2,40     |    1     |  2,40   |
+|     1GEL FRESCOR AZUL 0,75     |    1     |  0,75   |
+|   1BARR MUESLI FRUT SEC 1,65   |    1     |  1,65   |
+|   1BARRITA MUESLI CHOCO 1,40   |    1     |  1,40   |
+|    1GALLETITAS SALADAS 1,30    |    1     |  1,30   |
+|     1GUACAMOLE 500 GR 3,59     |    1     |  3,59   |
+|   1TOA.BEBE FRESCAS 240 3,00   |    1     |  3,00   |
+|    1COLIFLOR CONGELADA 2,05    |    1     |  2,05   |
+|         1BROCOLI 2,05          |    1     |  2,05   |
+|   2BOLSA PLASTICO 0,15 0,30    |    2     |  0,15   |
+|         1,384 kg 1,45          |  1,384   |  1,38   |
+|          1NACHOS 0,90          |    1     |  0,90   |
+|       112 HUEVOS GRANDES       |   112    |  2,20   |
+|   112 HUEVOS SUPER GRAN 3,25   |   112    |  3,25   |
+|       1FRESÓN 1 KG. 3,86       |    1     |  3,86   |
+|          2TROPICAL S           |    2     |  0,70   |
+|         1BEBER FRESA 0         |    1     |  1,45   |
+|   1GALLETAS MANTEQUILLA 2,85   |    1     |  2,85   |
+|   1QUESO BLANCO NATURAL 2,74   |    1     |  2,74   |
+|         1,276 kg 1,45          |  1,276   |  1,27   |
+|     1SALSA FINA KRAFT 2,00     |    1     |  2,00   |
+|     1PECHUGA FAMILIAR 7,11     |    1     |  7,11   |
+|          1NACHOS 0,90          |    1     |  0,90   |
+|   1CACAHUETE DESGRASADO 2,75   |    1     |  2,75   |
+|      1BOLSA PLASTICO 0,15      |    1     |  0,15   |
+|          2TROPICAL S           |    2     |  0,70   |
+|   1PAN BLANCO FAMILIAR 1,25    |    1     |  1,25   |
+|   1JAMON JUGOSO LONCHAS 1,82   |    1     |  1,82   |
+|   1LECHE DESN. PROT P6 7,50    |    1     |  7,50   |
+|         1,684 kg 1,45          |  1,684   |  1,68   |
+|      1BOLSA PLASTICO 0,15      |    1     |  0,15   |
+|   1TOMATE NATURAL RALLA 1,39   |    1     |  1,39   |
+|     1GUACAMOLE 500 GR 3,59     |    1     |  3,59   |
+|        1PAN DE LECHE 3         |    1     |  1,60   |
+|   1QUESO RALLADO PIZZA 1,54    |    1     |  1,54   |
+|   1JAMÓN SERRANO SOBRE 4,10    |    1     |  4,10   |
+|          2TROPICAL S           |    2     |  0,70   |
+|         1,336 kg 1,45          |  1,336   |  1,33   |
+|   1SALSA DE SOJA SALADA 1,40   |    1     |  1,40   |
+|    2BRONCHALES 6L 1,26 2,52    |    2     |  1,26   |
+|   1COMPRIMIDOS VITAMINA 3,00   |    1     |  3,00   |
+|    1COMPRIMIDOS DORMIR 3,95    |    1     |  3,95   |
+|     1CÁPSULAS MEMORY 3,95      |    1     |  3,95   |
+|     1MERMELADA FRESA 1,55      |    1     |  1,55   |
+|     1ARROZ VAPORIZADO 1,54     |    1     |  1,54   |
+|   1GALLETAS MANTEQUILLA 2,85   |    1     |  2,85   |
+|          2TROPICAL S           |    2     |  0,70   |
+|          1NACHOS 0,90          |    1     |  0,90   |
+|      1BOLSA PLASTICO 0,15      |    1     |  0,15   |
++--------------------------------+----------+---------+

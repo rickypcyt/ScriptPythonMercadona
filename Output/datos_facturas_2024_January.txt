@@ -1,0 +1,91 @@
+
+Mes: January | Año: 2024
++-----------------------------+----------+---------+
+|         Descripción         | Cantidad | Importe |
++-----------------------------+----------+---------+
+|    1PAT. CLASSICAS 1,75     |    1     |  1,75   |
+|  1ICE TEA MELOCOTÓN 0 0,95  |    1     |  0,95   |
+| 3CERVEZA IPA LATA 0,99 2,97 |    3     |  0,99   |
+| 1QUESO BLANCO NATURAL 2,74  |    1     |  2,74   |
+|  1FILETE CABEZA LOMO 3,50   |    1     |  3,50   |
+|     1ARROZ BASMATI 1,20     |    1     |  1,20   |
+|   1PIMENTON PICANTE 1,35    |    1     |  1,35   |
+|      1AJO PEREJIL 1,30      |    1     |  1,30   |
+|         1CURRY 1,15         |    1     |  1,15   |
+|    1PECHUGA EXTRA T 4,60    |    1     |  4,60   |
+|  2BRONCHALES 6L 1,23 2,46   |    2     |  1,23   |
+| 1Q. LONCHAS EDAM TIER 2,00  |    1     |  2,00   |
+| 1JAMON JUGOSO LONCHAS 1,82  |    1     |  1,82   |
+|     112 HUEVOS GRANDES      |   112    |  2,20   |
+|   1VINAGRE LIMPIEZA 0,90    |    1     |  0,90   |
+|       1BEBER FRESA 0        |    1     |  1,45   |
+|       1ZUMO NARANJA C       |    1     |  1,75   |
+|  1PAN BLANCO FAMILIAR 1,25  |    1     |  1,25   |
+|        1,292 kg 1,45        |  1,292   |  1,29   |
+|   1ARROZ VAPORIZADO 1,54    |    1     |  1,54   |
+|    1PAT. CLASSICAS 1,75     |    1     |  1,75   |
+| 1ZUMO DE NARANJA EXPR 1,75  |    1     |  1,75   |
+|  1ATUN CLARO NATURAL 4,35   |    1     |  4,35   |
+| 1QUESO BLANCO NATURAL 2,74  |    1     |  2,74   |
+|   124 HUEVOS FRESCOS 3,80   |   124    |  3,80   |
+|      1BEBER F SILVES 0      |    1     |  1,45   |
+|  1FILETE CABEZA LOMO 4,33   |    1     |  4,33   |
+|    1BOLSA PLASTICO 0,15     |    1     |  0,15   |
+|    1MANZANILLA MIEL 1,15    |    1     |  1,15   |
+|    1INFUSION DORMIR 1,05    |    1     |  1,05   |
+|  1TOALL.BEBE FRESC.80 1,05  |    1     |  1,05   |
+|     1TÉ LIMÓN 1,5L 0,95     |    1     |  0,95   |
+|     1LECHE ENTERA 0,91      |    1     |  0,91   |
+|  1LECHE DESN. PROT 1L 1,25  |    1     |  1,25   |
+|        1,782 kg 1,45        |  1,782   |  1,78   |
+|        0,266 kg 1,89        |  0,266   |  0,26   |
+|    1PAT. CLASSICAS 1,75     |    1     |  1,75   |
+|    1BOLSA PLASTICO 0,15     |    1     |  0,15   |
+|     1BRONCHALES 6L 1,26     |    1     |  1,26   |
+|      1BEBER F SILVES 0      |    1     |  1,45   |
+|    1GUACAMOLE 200 G 1,75    |    1     |  1,75   |
+| 1QUESO BLANCO NATURAL 2,74  |    1     |  2,74   |
+|      1COCKTAIL TOST. S      |    1     |  2,60   |
+|         2TROPICAL S         |    2     |  0,70   |
+|   1Q RALLADO FUNDIR 1,25    |    1     |  1,25   |
+|   1PECHUGA FAMILIAR 6,66    |    1     |  6,66   |
+|         1TROPICAL S         |    1     |  0,70   |
+| 1JAMON JUGOSO LONCHAS 1,82  |    1     |  1,82   |
+|     1AVENA MOLIDA 1,11      |    1     |  1,11   |
+|         1TROPICAL S         |    1     |  0,70   |
+|  1COLG. TRIPLE ACCION 1,95  |    1     |  1,95   |
+|    1ISOTONICO LIMON 1,99    |    1     |  1,99   |
+|   1SALERO SAL NORMAL 0,60   |    1     |  0,60   |
+|    1PECHUGA EXTRA T 3,95    |    1     |  3,95   |
+|         2TROPICAL S         |    2     |  0,70   |
+| 1QUESO BLANCO NATURAL 2,74  |    1     |  2,74   |
+|  1QUESO RALLADO PIZZA 1,54  |    1     |  1,54   |
+|    1BOLSA PLASTICO 0,15     |    1     |  0,15   |
+|    1PAT. CLASSICAS 1,75     |    1     |  1,75   |
+|  1ALCOHOL ETILICO 96 0,75   |    1     |  0,75   |
+|       1SAL FINA 0,35        |    1     |  0,35   |
+|        1,706 kg 1,45        |  1,706   |  1,70   |
+|     1BRONCHALES 6L 1,26     |    1     |  1,26   |
+|    1GUACAMOLE 200 G 1,75    |    1     |  1,75   |
+|      1COCKTAIL TOST. S      |    1     |  2,60   |
+|   1PECHUGA FAMILIAR 7,55    |    1     |  7,55   |
+|     212 HUEVOS GRANDES      |   212    |  2,20   |
+|  1LECHE DESN. PROT 1L 1,25  |    1     |  1,25   |
+|        1FRESÓN 4,25         |    1     |  4,25   |
+|          1GELLY 0           |    1     |  1,00   |
+|  1YOGUR GRIEGO LIGERO 1,60  |    1     |  1,60   |
+|    1ISOTONICO LIMON 1,99    |    1     |  1,99   |
+|       1BEBER FRESA 0        |    1     |  1,45   |
+| 1QUESO BLANCO NATURAL 2,74  |    1     |  2,74   |
+|    1PAT. CLASSICAS 1,75     |    1     |  1,75   |
+|         2TROPICAL S         |    2     |  0,70   |
+|    1BOLSA PLASTICO 0,15     |    1     |  0,15   |
+|   1HIELO CUBITO 2KG 0,85    |    1     |  0,85   |
+|    1ISOTONICO LIMON 1,99    |    1     |  1,99   |
+|   1GUACAMOLE 500 GR 3,59    |    1     |  3,59   |
+|    1PAT. CLASSICAS 1,75     |    1     |  1,75   |
+|  1MERMELADA ARÁNDANOS 1,95  |    1     |  1,95   |
+| 1JAMON JUGOSO LONCHAS 1,82  |    1     |  1,82   |
+| 1QUESO BLANCO NATURAL 2,74  |    1     |  2,74   |
+|  1QUESO GOUDA LONCHAS 2,15  |    1     |  2,15   |
++-----------------------------+----------+---------+
