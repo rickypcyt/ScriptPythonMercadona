@@ -1,7 +1,10 @@
-Hay que calcular el total
+Hay que calcular el total 
 
-Hay que corregir nombre de items para que no salgan numeros
+Hay que corregir nombre de items para que no salgan numeros LISTO PAPI
 
 Hay que agrupar items y que el script los detecte y los agrupe.
 
-Idea: Que extraiga solo el nombre de la descripcion del producto y solo el importe y que no tome en cuneta los numeros en la descripcion. En otro codigo que identificque por mes cuantos items tienen  mismo nombre y que sume las cantidades.El output tiene que ser una lista de solo dos columnas nombre de item y total. 
+Idea: Que extraiga solo el nombre de la descripcion del producto y solo el importe y que no tome en cuneta los numeros en la descripcion. LISTO
+
+ En otro codigo que identificque por mes cuantos items tienen  mismo nombre y que sume las cantidades. 
+ 

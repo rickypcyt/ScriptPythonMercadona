@@ -19,7 +19,7 @@ def extraer_datos_factura(texto_factura):
 
     patron_cantidad = r"(\d+)\s*[^\W\d_]+(?:\s+[^\W\d_]+)*"
 
-    patron_importe = r"(\d+[.,]\d{2})"
+    patron_precio_unitario = r"(\d+[.,]\d{2})\s*(?=[^\d.,\n]*\d)"
 
     datos_factura = []
     total_factura = 0.0
@@ -27,12 +27,26 @@ def extraer_datos_factura(texto_factura):
     for linea in lineas_factura[1:]:
         match_descripcion = re.search(patron_descripcion, linea)
         match_cantidad = re.search(patron_cantidad, linea)
-        match_importe = re.search(patron_importe, linea)
+        match_precio_unitario = re.search(patron_precio_unitario, linea)
 
-        if match_descripcion and match_cantidad and match_importe:
+        if match_descripcion and match_cantidad:
             descripcion = match_descripcion.group(0).strip()
             cantidad = match_cantidad.group(1)
-            importe = float(match_importe.group(0).replace(",", "."))
+
+            if match_precio_unitario:
+                precio_unitario = float(
+                    match_precio_unitario.group(1).replace(",", ".")
+                )
+                importe = precio_unitario * int(cantidad)
+            else:
+                match_importe = re.search(r"(\d+[.,]\d{2})", linea)
+                if match_importe:
+                    importe = float(match_importe.group(1).replace(",", "."))
+                else:
+                    continue
+
+            # Redondear el importe total a dos decimales
+            importe = round(importe, 2)
 
             datos_factura.append((descripcion, cantidad, importe))
             total_factura += importe
@@ -79,4 +93,4 @@ for ano, datos_por_mes in datos_por_ano_mes.items():
         with open(ruta_archivo, "w", encoding="utf-8") as archivo_salida:
             archivo_salida.write(tabla_mes)
 
-#El morenito
+# El morenito
