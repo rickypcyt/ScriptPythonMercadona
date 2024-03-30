@@ -13,7 +13,12 @@ def extraer_datos_factura(texto_factura):
 
     lineas_factura = texto_factura.split("\n")
 
-    patron_descripcion = r"\d+\s*[\dA-Za-zÁ-Úá-ú.,]+"
+    patron_descripcion = (
+        r"[^\W\d_]+(?:\s+[^\W\d_]+)*"  # Expresión regular para extraer solo texto
+    )
+
+    patron_cantidad = r"(\d+)\s*[^\W\d_]+(?:\s+[^\W\d_]+)*"
+
     patron_importe = r"(\d+[.,]\d{2})"
 
     datos_factura = []
@@ -21,13 +26,12 @@ def extraer_datos_factura(texto_factura):
 
     for linea in lineas_factura[1:]:
         match_descripcion = re.search(patron_descripcion, linea)
+        match_cantidad = re.search(patron_cantidad, linea)
         match_importe = re.search(patron_importe, linea)
 
-        if match_descripcion and match_importe:
-            cantidad_descripcion = match_descripcion.group(0).strip()
-            cantidad, descripcion = re.match(
-                r"(\d+)\s*(.*)", cantidad_descripcion
-            ).groups()
+        if match_descripcion and match_cantidad and match_importe:
+            descripcion = match_descripcion.group(0).strip()
+            cantidad = match_cantidad.group(1)
             importe = float(match_importe.group(0).replace(",", "."))
 
             datos_factura.append((descripcion, cantidad, importe))
