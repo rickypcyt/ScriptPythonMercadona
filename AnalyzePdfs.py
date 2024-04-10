@@ -53,7 +53,7 @@ def extraer_datos_factura(texto_factura):
 
     datos_factura.sort(key=lambda x: x[0])
 
-    return datos_factura, total_factura
+    return datos_factura, round(total_factura, 2)
 
 
 def extraer_texto_factura(archivo_path):
@@ -91,6 +91,7 @@ for ano, datos_por_mes in datos_por_ano_mes.items():
         nombre_archivo = f"datos_facturas_{ano}_{mes}.txt"
         ruta_archivo = os.path.join(directorio_salida, nombre_archivo)
         with open(ruta_archivo, "w", encoding="utf-8") as archivo_salida:
+            # Formatear el total a dos decimales
+            total_formateado = f"{datos_mes[-1][2]:.2f}"
+            tabla_mes = tabla_mes.replace(str(datos_mes[-1][2]), total_formateado)
             archivo_salida.write(tabla_mes)
-
-# El morenito
