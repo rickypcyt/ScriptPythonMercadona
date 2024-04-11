@@ -1,50 +1,86 @@
-import os
 import re
 from tabulate import tabulate
-from collections import defaultdict
-import calendar
+from PyPDF2 import PdfReader
 
-#Open the file in read mode ('r')
-with open ('PDF to TXT/20231213 Mercadona 14,55 €.txt', 'r', encoding='utf-8') as file:
-    lines_content = [line.strip() for line in file] #Read and strip lines
 
-#Find the start and end indices 
-start_index = None
-total_line = None
-for i, line in enumerate(lines_content):
-    if 'Descripción' in line: 
-        start_index = 1
+def extraer_datos_factura(texto_factura):
+    inicio = texto_factura.find("Descripción")
+    fin = texto_factura.find("TOTAL")
+    texto_factura = texto_factura[inicio:fin]
 
-    elif 'TOTAL (€)' in line: 
-        total_line = line #capture entire line 
-        break #Stop the loop when last line is reached   
+    lineas_factura = texto_factura.split("\n")
 
-    #Check if both start index and total line were found 
-    if start_index is not None and total_line is not None:
-        # Extract the revelant lines 
-        relevant_lines = lines_content[start_index + 1:1]
+    patron_descripcion = (
+        r"[^\W\d_]+(?:\s+[^\W\d_]+)*"  # Expresión regular para extraer solo texto
+    )
 
-        items = []
-        for line in relevant_lines:
-            #Using regular expressions to match the pattern of each item
-            match = re.match(r'(\d+)([A-Z\s]+)([\d\.,]+)', line)
-            if match: 
-                quantity, description, price = match.groups()
-                items.append([quantity, description.strip(), price.replace(',', '.')])
+    patron_cantidad = r"(\d+)\s*[^\W\d_]+(?:\s+[^\W\d_]+)*"
 
-    #Extract the total amount from the total line 
-    total_amount_match = re.search(r'TOTAL \(€\) (\d+,\d+)', total_line) 
-    if total_amount_match:
-        total_amount = total_amount_match(1).replace(',', '.')
-        items.append(['', 'TOTAL', total_amount])
+    patron_precio_unitario = r"(\d+[.,]\d{2})\s*(?=[^\d.,\n]*\d)"
 
-    # Format the items into a table structure
-    table = tabulate(items, headers = ['Quantity', 'Description', 'Price'], tablefmt='plain')
-    print (table)
-    
-    # Save the table to a new text file 
-    with open('output_table.txt', 'w', encoding='utf-8') as outfile: 
-        outfile.write(table)    
+    datos_factura = []
+    total_factura = 0.0
+    siguiente_importe = None
 
-else: 
-    print("Could not find the start section or the total in the next.")
+    for idx, linea in enumerate(lineas_factura[1:]):
+        match_descripcion = re.search(patron_descripcion, linea)
+        match_cantidad = re.search(patron_cantidad, linea)
+        match_precio_unitario = re.search(patron_precio_unitario, linea)
+
+        if match_descripcion and match_cantidad:
+            descripcion = match_descripcion.group(0).strip()
+            cantidad = match_cantidad.group(1)
+
+            if descripcion == "BANANA" and siguiente_importe:
+                importe = siguiente_importe
+                siguiente_importe = None
+            elif match_precio_unitario:
+                precio_unitario = float(
+                    match_precio_unitario.group(1).replace(",", ".")
+                )
+                importe = precio_unitario * int(cantidad)
+            else:
+                match_importe = re.search(r"(\d+[.,]\d{2})", linea)
+                if match_importe:
+                    importe = float(match_importe.group(1).replace(",", "."))
+                else:
+                    continue
+
+                # Obtener el importe de la siguiente línea si la descripción es "BANANA"
+                if descripcion == "BANANA" and idx + 1 < len(lineas_factura):
+                    siguiente_importe = importe
+                    continue
+
+            # Redondear el importe total a dos decimales
+            importe = round(importe, 2)
+
+            datos_factura.append((descripcion, cantidad, importe))
+            total_factura += importe
+
+    datos_factura.sort(key=lambda x: x[0])
+
+    return datos_factura, round(total_factura, 2)
+
+
+def extraer_texto_factura(archivo_path):
+    with open(archivo_path, "rb") as archivo_pdf:
+        pdf_reader = PdfReader(archivo_pdf)
+        texto_extraido = ""
+        for pagina in range(len(pdf_reader.pages)):
+            texto_extraido += pdf_reader.pages[pagina].extract_text()
+    return texto_extraido
+
+
+archivo_path = "ScriptPythonMercadona/Descargas Mails/20231213 Mercadona 14,55 €.pdf"
+texto_factura = extraer_texto_factura(archivo_path)
+datos_factura, total_factura = extraer_datos_factura(texto_factura)
+
+# Formatear el total a dos decimales
+total_formateado = f"{total_factura:.2f}"
+
+tabla_factura = tabulate(
+    datos_factura, headers=["Descripción", "Cantidad", "Importe"], tablefmt="plain"
+)
+tabla_factura += f"\nTOTAL: {total_formateado}"
+
+print(tabla_factura)
