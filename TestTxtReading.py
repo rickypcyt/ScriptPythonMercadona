@@ -31,7 +31,6 @@ def extraer_datos_factura(texto_factura):
             descripcion = match_descripcion.group(0).strip()
             cantidad = match_cantidad.group(1)
 
-            # Buscar el precio de la banana en el texto de la factura
             if "BANANA" in descripcion.upper() and not siguiente_importe:
                 for siguiente_linea in lineas_factura[idx + 1 :]:
                     match_importe_siguiente = re.search(
@@ -70,8 +69,11 @@ def extraer_datos_factura(texto_factura):
 
             if importe is not None:
                 importe = round(importe, 2)
-                datos_factura.append((descripcion, cantidad, importe))
-                total_factura += importe
+                if (
+                    "kg" not in descripcion.lower()
+                ):  # Verificar si 'kg' está en la descripción
+                    datos_factura.append((descripcion, cantidad, importe))
+                    total_factura += importe
 
     datos_factura.sort(key=lambda x: x[0])
 
@@ -99,4 +101,3 @@ tabla_factura = tabulate(
 tabla_factura += f"\nTOTAL: {total_formateado}"
 
 print(tabla_factura)
-
