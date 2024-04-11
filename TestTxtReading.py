@@ -31,7 +31,19 @@ def extraer_datos_factura(texto_factura):
             descripcion = match_descripcion.group(0).strip()
             cantidad = match_cantidad.group(1)
 
-            if descripcion == "BANANA" and siguiente_importe:
+            # Buscar el precio de la banana en el texto de la factura
+            if "BANANA" in descripcion.upper() and not siguiente_importe:
+                for siguiente_linea in lineas_factura[idx + 1 :]:
+                    match_importe_siguiente = re.search(
+                        r"(\d+[.,]\d{2})", siguiente_linea
+                    )
+                    if match_importe_siguiente:
+                        siguiente_importe = float(
+                            match_importe_siguiente.group(1).replace(",", ".")
+                        )
+                        break
+
+            if "BANANA" in descripcion.upper() and siguiente_importe:
                 importe = siguiente_importe
                 siguiente_importe = None
             elif match_precio_unitario:
@@ -44,18 +56,22 @@ def extraer_datos_factura(texto_factura):
                 if match_importe:
                     importe = float(match_importe.group(1).replace(",", "."))
                 else:
-                    continue
+                    importe = None
 
-                # Obtener el importe de la siguiente línea si la descripción es "BANANA"
-                if descripcion == "BANANA" and idx + 1 < len(lineas_factura):
-                    siguiente_importe = importe
-                    continue
+                if "BANANA" in descripcion.upper() and idx + 1 < len(lineas_factura):
+                    siguiente_linea = lineas_factura[idx + 1]
+                    match_importe_siguiente = re.search(
+                        r"(\d+[.,]\d{2})", siguiente_linea
+                    )
+                    if match_importe_siguiente:
+                        importe = float(
+                            match_importe_siguiente.group(1).replace(",", ".")
+                        )
 
-            # Redondear el importe total a dos decimales
-            importe = round(importe, 2)
-
-            datos_factura.append((descripcion, cantidad, importe))
-            total_factura += importe
+            if importe is not None:
+                importe = round(importe, 2)
+                datos_factura.append((descripcion, cantidad, importe))
+                total_factura += importe
 
     datos_factura.sort(key=lambda x: x[0])
 
@@ -64,7 +80,7 @@ def extraer_datos_factura(texto_factura):
 
 def extraer_texto_factura(archivo_path):
     with open(archivo_path, "rb") as archivo_pdf:
-        pdf_reader = PdfReader(archivo_pdf)
+        pdf_reader = PdfReader(archivo_path)
         texto_extraido = ""
         for pagina in range(len(pdf_reader.pages)):
             texto_extraido += pdf_reader.pages[pagina].extract_text()
@@ -75,7 +91,6 @@ archivo_path = "ScriptPythonMercadona/Descargas Mails/20231213 Mercadona 14,55 �
 texto_factura = extraer_texto_factura(archivo_path)
 datos_factura, total_factura = extraer_datos_factura(texto_factura)
 
-# Formatear el total a dos decimales
 total_formateado = f"{total_factura:.2f}"
 
 tabla_factura = tabulate(
@@ -84,3 +99,4 @@ tabla_factura = tabulate(
 tabla_factura += f"\nTOTAL: {total_formateado}"
 
 print(tabla_factura)
+
