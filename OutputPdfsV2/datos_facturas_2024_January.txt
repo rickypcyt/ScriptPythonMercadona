@@ -24,7 +24,8 @@ Mes: January | Año: 2024
 |   VINAGRE LIMPIEZA   |    1     |  0.9   |
 |    ZUMO NARANJA C    |    1     |  1.75  |
 |        TOTAL         |          | 11.37  |
-|        TOTAL         |          |  0.0   |
+|        BANANA        |    1     |  1.29  |
+|        TOTAL         |          |  1.29  |
 |   ARROZ VAPORIZADO   |    1     |  1.54  |
 |  ATUN CLARO NATURAL  |    1     |  4.35  |
 |    BEBER F SILVES    |    1     |  1.45  |
@@ -34,7 +35,7 @@ Mes: January | Año: 2024
 | QUESO BLANCO NATURAL |    1     |  2.74  |
 | ZUMO DE NARANJA EXPR |    1     |  1.75  |
 |        TOTAL         |          | 21.71  |
-|        BANANA        |    1     |  0.26  |
+|        BANANA        |    1     |  1.78  |
 |    BOLSA PLASTICO    |    1     |  0.15  |
 |   INFUSION DORMIR    |    1     |  1.05  |
 |      LECHE DESN      |    1     |  1.25  |
@@ -42,7 +43,7 @@ Mes: January | Año: 2024
 |   MANZANILLA MIEL    |    1     |  1.15  |
 |        TOALL         |    1     |  1.05  |
 |       TÉ LIMÓN       |    1     |  0.95  |
-|        TOTAL         |          |  6.77  |
+|        TOTAL         |          |  8.29  |
 |    BEBER F SILVES    |    1     |  1.45  |
 |    BOLSA PLASTICO    |    1     |  0.15  |
 |      BRONCHALES      |    1     |  1.26  |
@@ -65,13 +66,14 @@ Mes: January | Año: 2024
 |      TROPICAL S      |    1     |  0.7   |
 |        TOTAL         |          |  10.3  |
 |   ALCOHOL ETILICO    |    1     |  0.75  |
+|        BANANA        |    1     |  1.7   |
 |    BOLSA PLASTICO    |    1     |  0.15  |
 |         PAT          |    1     |  1.75  |
 | QUESO BLANCO NATURAL |    1     |  2.74  |
 | QUESO RALLADO PIZZA  |    1     |  1.54  |
 |       SAL FINA       |    1     |  0.35  |
 |      TROPICAL S      |    2     |  1.4   |
-|        TOTAL         |          |  8.68  |
+|        TOTAL         |          | 10.38  |
 |      BRONCHALES      |    1     |  1.26  |
 |    COCKTAIL TOST     |    1     |  2.6   |
 |      GUACAMOLE       |    1     |  1.75  |
