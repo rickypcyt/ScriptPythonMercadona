@@ -52,9 +52,18 @@ for num in data[0].split():
         if part.get_content_type() == 'application/pdf':
             filename = part.get_filename()
             if filename:
-                filepath = os.path.join('ScriptPythonMercadona\Descargas Mails', filename)
+                filepath = os.path.join(
+                    '/Users/user/Dropbox/Mac/Desktop/Projects/Python/pythonProject1/ScriptPythonMercadona/Descargas Mails',
+                    filename)
+
+                # Ensure the directory exists
+                directory = os.path.dirname(filepath)
+                if not os.path.exists(directory):
+                    os.makedirs(directory)
+
+                # Open the file safely
                 with open(filepath, 'wb') as fp:
                     fp.write(part.get_payload(decode=True))
 
-# Cerrar la conexión
-mail.logout()
+            # Cerrar la conexión
+            mail.logout()

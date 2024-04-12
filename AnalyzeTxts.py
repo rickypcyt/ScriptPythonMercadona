@@ -37,9 +37,9 @@ def extraer_datos_factura(texto_factura):
     return datos_factura, total_factura
 
 
-# Directorio que contiene los archivos de texto de las facturas
-directorio_entrada = "ScriptPythonMercadona/PDF to TXT/"
-directorio_salida = "ScriptPythonMercadona/OutputTxtsV2/"
+base_dir = '/Users/user/Dropbox/Mac/Desktop/Projects/Python/pythonProject1/ScriptPythonMercadona'
+directorio_entrada = os.path.join(base_dir, 'PDF to TXT')
+directorio_salida = os.path.join(base_dir, 'OutputTxtsV2')
 
 # Diccionario para almacenar los datos de todas las facturas por año y mes
 datos_por_ano_mes = defaultdict(lambda: defaultdict(list))

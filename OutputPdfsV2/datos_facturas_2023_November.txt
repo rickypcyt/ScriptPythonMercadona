@@ -1,11 +1,11 @@
 
 Mes: November | Año: 2023
-+----------------------+----------+-------+
-|         Item         | Cantidad | Total |
-+----------------------+----------+-------+
-|     AVENA MOLIDA     |    1     | 1.11  |
-|    BOLSA PLASTICO    |    1     | 0.15  |
-| PECHUGA FINAS HIERB  |    1     |  4.0  |
-| ZUMO DE NARANJA EXPR |    1     |  1.3  |
-|        TOTAL         |          | 6.56  |
-+----------------------+----------+-------+
++----------------------+------------+-------+
+|         Item         | Cantidaddd | Total |
++----------------------+------------+-------+
+|     AVENA MOLIDA     |     1      | 1.11  |
+|    BOLSA PLASTICO    |     1      | 0.15  |
+| PECHUGA FINAS HIERB  |     1      |  4.0  |
+| ZUMO DE NARANJA EXPR |     1      |  1.3  |
+|        TOTAL         |            | 6.56  |
++----------------------+------------+-------+

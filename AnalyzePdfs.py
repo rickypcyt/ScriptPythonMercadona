@@ -5,6 +5,7 @@ from collections import defaultdict
 import calendar
 from PyPDF2 import PdfReader
 
+base_dir = '/Users/user/Dropbox/Mac/Desktop/Projects/Python/pythonProject1/ScriptPythonMercadona'
 
 def extraer_datos_factura(texto_factura):
     inicio = texto_factura.find("Descripción")
@@ -97,16 +98,18 @@ def extraer_texto_factura(archivo_path):
     return texto_extraido
 
 
-directorio_entrada = "ScriptPythonMercadona/Descargas Mails/"
-directorio_salida = "ScriptPythonMercadona/OutputPdfsV2"
+directorio_entrada = os.path.join(base_dir, 'Descargas Mails')
+directorio_salida = os.path.join(base_dir, 'OutputPdfsV2')
 
 datos_por_ano_mes = defaultdict(lambda: defaultdict(list))
 
 for archivo_name in os.listdir(directorio_entrada):
     if archivo_name.endswith(".pdf"):
+        print(f"Processing file: {archivo_name}")  # Debug print
         archivo_path = os.path.join(directorio_entrada, archivo_name)
         texto_factura = extraer_texto_factura(archivo_path)
         datos_factura, total_factura = extraer_datos_factura(texto_factura)
+        print(f"Extracted data for {archivo_name}: {datos_factura}")  # Debug print
         fecha = archivo_name.split()[0]
         ano = fecha[:4]
         mes = fecha[4:6]
@@ -116,14 +119,13 @@ for archivo_name in os.listdir(directorio_entrada):
 
 for ano, datos_por_mes in datos_por_ano_mes.items():
     for mes, datos_mes in datos_por_mes.items():
-        tabla_mes = tabulate(
-            datos_mes, headers=["Item", "Cantidad", "Total"], tablefmt="pretty"
-        )
+        tabla_mes = tabulate(datos_mes, headers=["Item", "Cantidad", "Total"], tablefmt="pretty")
         tabla_mes = f"\nMes: {mes} | Año: {ano}\n" + tabla_mes
         nombre_archivo = f"datos_facturas_{ano}_{mes}.txt"
         ruta_archivo = os.path.join(directorio_salida, nombre_archivo)
+        print(f"Writing to {ruta_archivo}")  # Debug print
+        print(tabla_mes)  # Debug print
         with open(ruta_archivo, "w", encoding="utf-8") as archivo_salida:
-            # Formatear el total a dos decimales
             total_formateado = f"{datos_mes[-1][2]:.2f}"
             tabla_mes = tabla_mes.replace(str(datos_mes[-1][2]), total_formateado)
             archivo_salida.write(tabla_mes)
