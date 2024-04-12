@@ -12,8 +12,8 @@ def pdf_to_text(pdf_path, txt_path):
         txt_file.write(text)
 
 # Directorio de entrada y salida
-input_directory = 'ScriptPythonMercadona/Descargas Mails'
-output_directory = 'ScriptPythonMercadona/PDF to TXT'
+input_directory = '/Users/user/Dropbox/Mac/Desktop/Projects/Python/pythonProject1/ScriptPythonMercadona/Descargas Mails'
+output_directory = '/Users/user/Dropbox/Mac/Desktop/Projects/Python/pythonProject1/ScriptPythonMercadona/PDF to TXT'
 
 # Asegúrate de que el directorio de salida exista
 if not os.path.exists(output_directory):
