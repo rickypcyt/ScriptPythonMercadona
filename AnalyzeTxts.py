@@ -12,26 +12,36 @@ def extraer_datos_factura(texto_factura):
 
     lineas_factura = texto_factura.split("\n")
 
-    patron_descripcion = r"\d+\s*[\dA-Za-zÁ-Úá-ú.,]+"
+    # Included other characters such as ñ
+    patron_descripcion = r"\d+\s*[\dA-Za-zÁ-Úá-úÑñÖöŻż.,]+"
     patron_importe = r"(\d+[.,]\d{2})"
 
     datos_factura = []
     total_factura = 0.0
 
-    for linea in lineas_factura[1:]:
+    #[1:] Removed this, not necessary since we already start where we want
+    for linea in lineas_factura:
+        #Check these 2 and make sure they are actually finding what we need
+
+        #match_descripcion looks for the quantity and description of the2 item
         match_descripcion = re.search(patron_descripcion, linea)
+        #match_importe looks for the price of the item
         match_importe = re.search(patron_importe, linea)
 
+        #Checks if both items were succesful, if not line is skipped
         if match_descripcion and match_importe:
+            #Retrieves the matched string and removes white spaces
             cantidad_descripcion = match_descripcion.group(0).strip()
-            cantidad, descripcion = re.match(
-                r"(\d+)\s*(.*)", cantidad_descripcion
-            ).groups()
+            #Separating quantity and description
+            cantidad, descripcion = re.match(r"(\d+)\s*(.*)", cantidad_descripcion).groups()
             importe = float(match_importe.group(0).replace(",", "."))
 
+            #Store in a tuple which cannot be changed (datatype)
             datos_factura.append((descripcion, cantidad, importe))
             total_factura += importe
 
+    #Sorting before returning, lambda is a way of creating an anonymous function, used as a short one
+    #Takes an argument x (each tuple in datos_factura) and returns first element in the tuple, sort by description a-z
     datos_factura.sort(key=lambda x: x[0])
 
     return datos_factura, total_factura

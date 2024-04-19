@@ -6,126 +6,71 @@ import calendar
 from PyPDF2 import PdfReader
 
 base_dir = '/Users/user/Dropbox/Mac/Desktop/Projects/Python/pythonProject1/ScriptPythonMercadona'
+directorio_entrada = os.path.join(base_dir, 'Descargas Mails')
+directorio_salida = os.path.join(base_dir, 'OutputPdfsV2')
+
+def extraer_texto_factura(archivo_path):
+    """Extract all text from a PDF file."""
+    with open(archivo_path, "rb") as archivo_pdf:
+        pdf_reader = PdfReader(archivo_path)
+        texto_extraido = "".join(page.extract_text() for page in pdf_reader.pages if page.extract_text())
+    return texto_extraido
+
+def extract_details_from_line(line):
+    """Extracts quantity, description, and price from a given line of invoice data."""
+    match = re.search(r"(\d+) ([\w\s]+) (\d+[.,]\d{2})$", line.strip())
+    if match:
+        quantity = int(match.group(1))
+        description = match.group(2).strip()
+        price = float(match.group(3).replace(',', '.'))  # Normalize decimal separator
+        return quantity, description, price
+    return None, None, None
 
 def extraer_datos_factura(texto_factura):
+    """Extract structured data from extracted text."""
     inicio = texto_factura.find("Descripción")
     fin = texto_factura.find("TOTAL")
     texto_factura = texto_factura[inicio:fin]
 
     lineas_factura = texto_factura.split("\n")
+    datos_factura = defaultdict(lambda: [0, 0.0])  # Summing quantities and total prices
 
-    patron_descripcion = (
-        r"[^\W\d_]+(?:\s+[^\W\d_]+)*"  # Expresión regular para extraer solo texto
-    )
+    for linea in lineas_factura:
+        cantidad, descripcion, importe = extract_details_from_line(linea)
+        if cantidad and descripcion and importe:
+            datos_factura[descripcion][0] += cantidad
+            datos_factura[descripcion][1] += importe
 
-    patron_cantidad = r"(\d+)\s*[^\W\d_]+(?:\s+[^\W\d_]+)*"
+    return datos_factura
 
-    patron_precio_unitario = r"(\d+[.,]\d{2})\s*(?=[^\d.,\n]*\d)"
+def process_pdf_files(directorio_entrada, directorio_salida):
+    """Process all PDF files in the directory, extract, aggregate by month, and output summaries."""
+    datos_por_ano_mes = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: [0, 0.0])))
 
-    datos_factura = []
-    total_factura = 0.0
-    siguiente_importe = None
+    for archivo_name in os.listdir(directorio_entrada):
+        if archivo_name.endswith(".pdf"):
+            archivo_path = os.path.join(directorio_entrada, archivo_name)
+            texto_factura = extraer_texto_factura(archivo_path)
+            datos_factura = extraer_datos_factura(texto_factura)
+            fecha = archivo_name.split()[0]
+            ano = fecha[:4]
+            mes = fecha[4:6]
+            nombre_mes = calendar.month_name[int(mes)]
 
-    for idx, linea in enumerate(lineas_factura[1:]):
-        match_descripcion = re.search(patron_descripcion, linea)
-        match_cantidad = re.search(patron_cantidad, linea)
-        match_precio_unitario = re.search(patron_precio_unitario, linea)
+            for descripcion, (cantidad, total) in datos_factura.items():
+                datos_por_ano_mes[ano][nombre_mes][descripcion][0] += cantidad
+                datos_por_ano_mes[ano][nombre_mes][descripcion][1] += total
 
-        if match_descripcion and match_cantidad:
-            descripcion = match_descripcion.group(0).strip()
-            cantidad = match_cantidad.group(1)
+    for ano, meses in datos_por_ano_mes.items():
+        for mes, items in meses.items():
+            final_data = [(desc, details[0], round(details[1], 2)) for desc, details in items.items()]
+            final_data.append(("TOTAL", "", round(sum(details[1] for details in items.values()), 2)))
 
-            if "BANANA" in descripcion.upper() and not siguiente_importe:
-                siguiente_linea_idx = idx + 1
-                for _ in range(1):  # Saltar las dos primeras líneas después de BANANA
-                    siguiente_linea_idx += 1
-                    if siguiente_linea_idx >= len(lineas_factura):
-                        break
-                if siguiente_linea_idx < len(lineas_factura):
-                    siguiente_linea = lineas_factura[siguiente_linea_idx]
-                    match_importe_siguiente = re.search(
-                        r"(\d+[.,]\d{2})", siguiente_linea
-                    )
-                    if match_importe_siguiente:
-                        siguiente_importe = float(
-                            match_importe_siguiente.group(1).replace(",", ".")
-                        )
+            tabla_mes = tabulate(final_data, headers=["Item", "Cantidad", "Total"], tablefmt="pretty")
+            tabla_mes = f"\nMes: {mes} | Año: {ano}\n" + tabla_mes
+            nombre_archivo = f"datos_facturas_{ano}_{mes}.txt"
+            ruta_archivo = os.path.join(directorio_salida, nombre_archivo)
+            with open(ruta_archivo, "w", encoding="utf-8") as archivo_salida:
+                archivo_salida.write(tabla_mes)
 
-            if "BANANA" in descripcion.upper() and siguiente_importe:
-                importe = siguiente_importe
-                siguiente_importe = None
-            elif match_precio_unitario:
-                precio_unitario = float(
-                    match_precio_unitario.group(1).replace(",", ".")
-                )
-                importe = precio_unitario * int(cantidad)
-            else:
-                match_importe = re.search(r"(\d+[.,]\d{2})", linea)
-                if match_importe:
-                    importe = float(match_importe.group(1).replace(",", "."))
-                else:
-                    importe = None
-
-                if "BANANA" in descripcion.upper() and idx + 1 < len(lineas_factura):
-                    siguiente_linea = lineas_factura[idx + 1]
-                    match_importe_siguiente = re.search(
-                        r"(\d+[.,]\d{2})", siguiente_linea
-                    )
-                    if match_importe_siguiente:
-                        importe = float(
-                            match_importe_siguiente.group(1).replace(",", ".")
-                        )
-
-            if importe is not None:
-                importe = round(importe, 2)
-                if (
-                    "kg" not in descripcion.lower()
-                ):  # Verificar si 'kg' está en la descripción
-                    datos_factura.append((descripcion, cantidad, importe))
-                    total_factura += importe
-
-    datos_factura.sort(key=lambda x: x[0])
-
-    return datos_factura, round(total_factura, 2)
-
-
-def extraer_texto_factura(archivo_path):
-    with open(archivo_path, "rb") as archivo_pdf:
-        pdf_reader = PdfReader(archivo_path)
-        texto_extraido = ""
-        for pagina in range(len(pdf_reader.pages)):
-            texto_extraido += pdf_reader.pages[pagina].extract_text()
-    return texto_extraido
-
-
-directorio_entrada = os.path.join(base_dir, 'Descargas Mails')
-directorio_salida = os.path.join(base_dir, 'OutputPdfsV2')
-
-datos_por_ano_mes = defaultdict(lambda: defaultdict(list))
-
-for archivo_name in os.listdir(directorio_entrada):
-    if archivo_name.endswith(".pdf"):
-        print(f"Processing file: {archivo_name}")  # Debug print
-        archivo_path = os.path.join(directorio_entrada, archivo_name)
-        texto_factura = extraer_texto_factura(archivo_path)
-        datos_factura, total_factura = extraer_datos_factura(texto_factura)
-        print(f"Extracted data for {archivo_name}: {datos_factura}")  # Debug print
-        fecha = archivo_name.split()[0]
-        ano = fecha[:4]
-        mes = fecha[4:6]
-        nombre_mes = calendar.month_name[int(mes)]
-        datos_por_ano_mes[ano][nombre_mes].extend(datos_factura)
-        datos_por_ano_mes[ano][nombre_mes].append(("TOTAL", "", total_factura))
-
-for ano, datos_por_mes in datos_por_ano_mes.items():
-    for mes, datos_mes in datos_por_mes.items():
-        tabla_mes = tabulate(datos_mes, headers=["Item", "Cantidad", "Total"], tablefmt="pretty")
-        tabla_mes = f"\nMes: {mes} | Año: {ano}\n" + tabla_mes
-        nombre_archivo = f"datos_facturas_{ano}_{mes}.txt"
-        ruta_archivo = os.path.join(directorio_salida, nombre_archivo)
-        print(f"Writing to {ruta_archivo}")  # Debug print
-        print(tabla_mes)  # Debug print
-        with open(ruta_archivo, "w", encoding="utf-8") as archivo_salida:
-            total_formateado = f"{datos_mes[-1][2]:.2f}"
-            tabla_mes = tabla_mes.replace(str(datos_mes[-1][2]), total_formateado)
-            archivo_salida.write(tabla_mes)
+process_pdf_files(directorio_entrada, directorio_salida)
