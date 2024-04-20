@@ -4,6 +4,7 @@ from tabulate import tabulate
 from collections import defaultdict
 import calendar
 
+# Finished adding comments
 
 def extraer_datos_factura(texto_factura):
     inicio = texto_factura.find("Descripción")
