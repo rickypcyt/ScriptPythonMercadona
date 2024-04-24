@@ -57,11 +57,12 @@ Mes: December | Año: 2023
 |        HELADO        |    1     |  2.8  |
 |   ISOTONICO LIMON    |    1     | 1.95  |
 |     LOMO GRUESO      |    1     | 4.86  |
+|    MANZANA GRANNY    |    1     | 0.68  |
 |         PAT          |    1     | 1.75  |
 | QUESO BLANCO NATURAL |    1     | 2.74  |
 |       TÉ LIMÓN       |    1     | 0.95  |
 |     UVA BLANCA S     |    1     | 2.84  |
-|        TOTAL         |          | 31.12 |
+|        TOTAL         |          | 31.8  |
 |     AGUA MINERAL     |    1     | 0.79  |
 |         COLA         |    2     |  1.7  |
 |    LS ENS GRANDE     |    1     |  5.0  |

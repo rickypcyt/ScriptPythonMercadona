@@ -4,6 +4,7 @@ from tabulate import tabulate
 from collections import defaultdict
 import calendar
 
+
 def extraer_datos_factura(texto_factura):
     inicio = texto_factura.find("Descripción")
     fin = texto_factura.find("TOTAL")
@@ -48,7 +49,28 @@ def extraer_datos_factura(texto_factura):
                             match_importe_siguiente.group(1).replace(",", ".")
                         )
 
+            if "MANZANA GRANNY" in descripcion.upper() and not siguiente_importe:
+                siguiente_linea_idx = idx + 1
+                for _ in range(
+                    1
+                ):  # Saltar las dos primeras líneas después de MANZANA GRANNY
+                    siguiente_linea_idx += 1
+                    if siguiente_linea_idx >= len(lineas_factura):
+                        break
+                if siguiente_linea_idx < len(lineas_factura):
+                    siguiente_linea = lineas_factura[siguiente_linea_idx]
+                    match_importe_siguiente = re.search(
+                        r"(\d+[.,]\d{2})", siguiente_linea
+                    )
+                    if match_importe_siguiente:
+                        siguiente_importe = float(
+                            match_importe_siguiente.group(1).replace(",", ".")
+                        )
+
             if "BANANA" in descripcion.upper() and siguiente_importe:
+                importe = siguiente_importe
+                siguiente_importe = None
+            elif "MANZANA GRANNY" in descripcion.upper() and siguiente_importe:
                 importe = siguiente_importe
                 siguiente_importe = None
             elif match_precio_unitario:
@@ -64,6 +86,17 @@ def extraer_datos_factura(texto_factura):
                     importe = None
 
                 if "BANANA" in descripcion.upper() and idx + 1 < len(lineas_factura):
+                    siguiente_linea = lineas_factura[idx + 1]
+                    match_importe_siguiente = re.search(
+                        r"(\d+[.,]\d{2})", siguiente_linea
+                    )
+                    if match_importe_siguiente:
+                        importe = float(
+                            match_importe_siguiente.group(1).replace(",", ".")
+                        )
+                elif "MANZANA GRANNY" in descripcion.upper() and idx + 1 < len(
+                    lineas_factura
+                ):
                     siguiente_linea = lineas_factura[idx + 1]
                     match_importe_siguiente = re.search(
                         r"(\d+[.,]\d{2})", siguiente_linea
@@ -108,7 +141,7 @@ for archivo_name in os.listdir(directorio_entrada):
             mes = fecha[4:6]
             nombre_mes = calendar.month_name[int(mes)]
             datos_por_ano_mes[ano][nombre_mes].extend(datos_factura)
-            datos_por_ano_mes[ano][nombre_mes].append(("TOTAL", "", total_factura))
+            datos_por_ano_mes[ano][nombre_mes].append(("TOTAL", "", total_factura,))
 
 for ano, datos_por_mes in datos_por_ano_mes.items():
     for mes, datos_mes in datos_por_mes.items():
