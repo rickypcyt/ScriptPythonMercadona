@@ -1,6 +1,7 @@
-Hay que calcular el total 
+* Hay que calcular el total, por el momento solo esta cada mes combinado con facturas de cada dia
+* Pero debe ser una sola con las cantidades y total correct - In progres
 
-Hay que corregir nombre de items para que no salgan numeros LISTO PAPI
+Hay que corregir nombre de items para que no salgan numeros - LISTO PAPI
 
 Hay que agrupar items y que el script los detecte y los agrupe.
 

@@ -141,7 +141,13 @@ for archivo_name in os.listdir(directorio_entrada):
             mes = fecha[4:6]
             nombre_mes = calendar.month_name[int(mes)]
             datos_por_ano_mes[ano][nombre_mes].extend(datos_factura)
-            datos_por_ano_mes[ano][nombre_mes].append(("TOTAL", "", total_factura,))
+            datos_por_ano_mes[ano][nombre_mes].append(
+                (
+                    "TOTAL",
+                    "",
+                    total_factura,
+                )
+            )
 
 for ano, datos_por_mes in datos_por_ano_mes.items():
     for mes, datos_mes in datos_por_mes.items():
