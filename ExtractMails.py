@@ -53,7 +53,7 @@ for num in data[0].split():
             filename = part.get_filename()
             if filename:
                 filepath = os.path.join(
-                    '/Users/user/Dropbox/Mac/Desktop/Projects/Python/pythonProject1/ScriptPythonMercadona/Descargas Mails',
+                    '/Users/user/Dropbox/Mac/Desktop/Projects/Python/pythonProject1/ScriptPythonMercadona/Descargas PDF Mails',
                     filename)
 
                 # Ensure the directory exists
