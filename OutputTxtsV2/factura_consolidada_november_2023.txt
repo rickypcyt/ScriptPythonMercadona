@@ -1,0 +1,5 @@
+Factura Consolidada para November 2023
+
+Item    Cantidad    Total
+
+Total del Mes: 6.56

@@ -3,14 +3,14 @@ Mes: February | Año: 2024
 +----------------------+----------+-------+
 |         Item         | Cantidad | Total |
 +----------------------+----------+-------+
-|        BANANA        |    1     | 1.26  |
+|        BANANA        |    1     | 1.83  |
 |    BEBER F SILVES    |    1     | 1.45  |
 |       COLIFLOR       |    1     |  2.1  |
 |  GALLETITAS SALADAS  |    1     |  1.3  |
 |   MIX FRUTOS ROJOS   |    1     | 1.54  |
 |   PECHUGA FAMILIAR   |    1     | 7.64  |
 |      TROPICAL S      |    1     |  0.7  |
-|        TOTAL         |          | 15.99 |
+|        TOTAL         |          | 16.56 |
 |        HELADO        |    1     | 2.85  |
 |    HUEVOS GRANDES    |   112    |  2.2  |
 |  HUEVOS SUPER GRAN   |   112    | 3.25  |

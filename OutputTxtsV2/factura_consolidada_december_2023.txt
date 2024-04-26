@@ -1,0 +1,5 @@
+Factura Consolidada para December 2023
+
+Item    Cantidad    Total
+
+Total del Mes: 122.84
