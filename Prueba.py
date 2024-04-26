@@ -77,9 +77,33 @@ base_dir = "/Users/user/Dropbox/Mac/Desktop/Projects/Python/pythonProject1/Scrip
 directorio_entrada = "ScriptPythonMercadona/PDF to TXT/"
 directorio_salida = "ScriptPythonMercadona/OutputTxtsV2/"
 
+
+# Ahora, el valor total_cantidad contiene la suma total de todas las cantidades
+# Ahora, el valor total_cantidad contiene la suma total de todas las cantidades
 datos_por_ano_mes = defaultdict(
     lambda: defaultdict(lambda: defaultdict(lambda: [0, 0.0]))
 )
+
+# Inicializar la variable total_cantidad fuera del bucle externo
+for archivo_name in os.listdir(directorio_entrada):
+    if archivo_name.endswith(".txt"):
+        archivo_path = os.path.join(directorio_entrada, archivo_name)
+        with open(archivo_path, "r", encoding="utf-8") as archivo:
+            texto_factura = archivo.read()
+            datos_factura, total_factura = extraer_datos_factura(texto_factura)
+            fecha = archivo_name.split()[0]
+            ano = fecha[:4]
+            mes = fecha[4:6]
+            nombre_mes = calendar.month_name[int(mes)]
+            # Sumar la cantidad total de todas las facturas en este mes específico
+            total_cantidad_mes = sum(cantidad for cantidad, _ in datos_factura.values())
+            for item, (cantidad, precio_total) in datos_factura.items():
+                datos_por_ano_mes[ano][nombre_mes][item][0] += cantidad
+                datos_por_ano_mes[ano][nombre_mes][item][1] += precio_total
+            # Actualizar el total de cantidad por mes con la cantidad total de todas las facturas
+            datos_por_ano_mes[ano][nombre_mes]["TOTAL"][0] += total_cantidad_mes
+            datos_por_ano_mes[ano][nombre_mes]["TOTAL"][1] += total_factura
+
 
 for ano, datos_por_mes in datos_por_ano_mes.items():
     for mes, datos_mes in datos_por_mes.items():
@@ -102,27 +126,3 @@ for ano, datos_por_mes in datos_por_ano_mes.items():
         ruta_archivo = os.path.join(directorio_salida, nombre_archivo)
         with open(ruta_archivo, "w", encoding="utf-8") as archivo_salida:
             archivo_salida.write(tabla_mes)
-
-# Ahora, el valor total_cantidad contiene la suma total de todas las cantidades
-
-# Inicializar la variable total_cantidad fuera del bucle externo
-for archivo_name in os.listdir(directorio_entrada):
-    if archivo_name.endswith(".txt"):
-        archivo_path = os.path.join(directorio_entrada, archivo_name)
-        with open(archivo_path, "r", encoding="utf-8") as archivo:
-            texto_factura = archivo.read()
-            datos_factura, total_factura = extraer_datos_factura(texto_factura)
-            fecha = archivo_name.split()[0]
-            ano = fecha[:4]
-            mes = fecha[4:6]
-            nombre_mes = calendar.month_name[int(mes)]
-            # Sumar la cantidad total de todas las facturas en este mes específico
-            total_cantidad_mes = sum(cantidad for cantidad, _ in datos_factura.values())
-            for item, (cantidad, precio_total) in datos_factura.items():
-                datos_por_ano_mes[ano][nombre_mes][item][0] += cantidad
-                datos_por_ano_mes[ano][nombre_mes][item][1] += precio_total
-            # Actualizar el total de cantidad por mes con la cantidad total de todas las facturas
-            datos_por_ano_mes[ano][nombre_mes]["TOTAL"][0] += total_cantidad_mes
-            datos_por_ano_mes[ano][nombre_mes]["TOTAL"][1] += total_factura
-
-# Ahora, el valor total_cantidad contiene la suma total de todas las cantidades
