@@ -1,142 +1,62 @@
-
-Mes: February | Año: 2024
-+----------------------+----------+-------+
-|         Item         | Cantidad | Total |
-+----------------------+----------+-------+
-|        BANANA        |    1     | 1.83  |
-|    BEBER F SILVES    |    1     | 1.45  |
-|       COLIFLOR       |    1     |  2.1  |
-|  GALLETITAS SALADAS  |    1     |  1.3  |
-|   MIX FRUTOS ROJOS   |    1     | 1.54  |
-|   PECHUGA FAMILIAR   |    1     | 7.64  |
-|      TROPICAL S      |    1     |  0.7  |
-|        TOTAL         |          | 16.56 |
-|        HELADO        |    1     | 2.85  |
-|    HUEVOS GRANDES    |   112    |  2.2  |
-|  HUEVOS SUPER GRAN   |   112    | 3.25  |
-|      LECHE DESN      |    2     |  2.5  |
-|  QUITAGRASA CITRICO  |    1     | 1.45  |
-|   RECIPIENTES RECT   |    14    |  2.4  |
-|      TROPICAL S      |    1     |  0.7  |
-|        TOTAL         |          | 15.305 |
-|        BANANA        |    1     |  1.5  |
-|        NACHOS        |    1     |  0.9  |
-|        TOTAL         |          |  2.4  |
-|     BEBER FRESA      |    1     | 1.45  |
-|    BOLSA PLASTICO    |    1     | 0.15  |
-|   GRIEGO NATURAL P   |    1     |  1.6  |
-|       JAMON C        |    1     | 2.04  |
-| PAN BLANCO FAMILIAR  |    1     | 1.25  |
-|    SALSA MEXICANA    |    1     | 1.25  |
-|      TROPICAL S      |    2     |  1.4  |
-|        TOTAL         |          | 9.14  |
-|   ARROZ VAPORIZADO   |    1     | 1.54  |
-|    BOLSA PLASTICO    |    1     | 0.15  |
-|   PECHUGA FAMILIAR   |    1     | 7.49  |
-| QUESO BLANCO NATURAL |    1     | 2.74  |
-|      TROPICAL S      |    2     |  1.4  |
-|        TOTAL         |          | 13.32 |
-|        BANANA        |    1     | 1.53  |
-|         PAT          |    1     | 1.75  |
-|  ROLLO HOGAR DOBLE   |    1     |  2.2  |
-|        TOTAL         |          | 5.48  |
-|    BEBER F SILVES    |    1     | 1.45  |
-|      GUACAMOLE       |    1     | 1.75  |
-| JAMON JUGOSO LONCHAS |    1     | 1.82  |
-|      LECHE DESN      |    3     | 3.75  |
-|   PECHUGA FAMILIAR   |    1     | 7.23  |
-|   Q RALLADO FUNDIR   |    1     | 2.05  |
-|      TROPICAL S      |    3     |  2.1  |
-|        TOTAL         |          | 20.15 |
-|    BOLSA PLASTICO    |    2     |  0.3  |
-|   COMINOS MOLIDOS    |    1     |  1.2  |
-|   GRIEGO NATURAL P   |    1     |  1.6  |
-|      GUACAMOLE       |    1     | 3.59  |
-|    HUEVOS GRANDES    |   112    |  2.2  |
-|  HUEVOS SUPER GRAN   |   112    | 3.25  |
-|       KETCHUP        |    1     |  1.3  |
-|      LECHE DESN      |    2     |  2.5  |
-|   MIX FRUTOS ROJOS   |    1     | 1.54  |
-|        NACHOS        |    1     |  0.9  |
-|   PECHUGA FAMILIAR   |    1     | 7.79  |
-|          Q           |    1     | 1.68  |
-|    SALSA RANCHERA    |    1     | 1.35  |
-|      TROPICAL S      |    2     |  1.4  |
-|        TOTAL         |          | 30.6  |
-|      BRONCHALES      |    4     | 5.04  |
-|        TOTAL         |          | 5.04  |
-|        BANANA        |    1     | 1.45  |
-|    BOLSA PLASTICO    |    1     | 0.15  |
-| GALLETAS MANTEQUILLA |    1     | 2.85  |
-| JAMON JUGOSO LONCHAS |    1     | 1.82  |
-| QUESO BLANCO NATURAL |    1     | 2.74  |
-|      TROPICAL S      |    2     |  1.4  |
-|        TOTAL         |          | 10.41 |
-|   ARROZ VAPORIZADO   |    1     | 1.54  |
-|     AVENA MOLIDA     |    1     | 1.11  |
-|       CERVEZA        |    3     | 2.46  |
-|       CRACKERS       |    1     | 1.95  |
-|   PECHUGA FAMILIAR   |    1     | 7.25  |
-|     PIZZA JAMON      |    1     |  3.5  |
-| QUESO RALLADO GOUDA  |    1     | 1.44  |
-|        TOTAL         |          | 19.25 |
-|        BANANA        |    1     | 1.38  |
-| BARR MUESLI FRUT SEC |    1     | 1.65  |
-| BARRITA MUESLI CHOCO |    1     |  1.4  |
-|    BOLSA PLASTICO    |    2     |  0.3  |
-|       BROCOLI        |    1     | 2.05  |
-|  CHAMPÚ AC CÍTRICO   |    1     |  2.4  |
-|  COLIFLOR CONGELADA  |    1     | 2.05  |
-|  GALLETITAS SALADAS  |    1     |  1.3  |
-|   GEL FRESCOR AZUL   |    1     | 0.75  |
-|      GUACAMOLE       |    1     | 3.59  |
-|        NACHOS        |    1     |  0.9  |
-|         TOA          |    1     |  3.0  |
-|      TROPICAL S      |    2     |  1.4  |
-|        TOTAL         |          | 22.17 |
-|        BANANA        |    1     | 1.27  |
-|     BEBER FRESA      |    1     | 1.45  |
-|        FRESÓN        |    1     | 3.86  |
-| GALLETAS MANTEQUILLA |    1     | 2.85  |
-|    HUEVOS GRANDES    |   112    |  2.2  |
-|  HUEVOS SUPER GRAN   |   112    | 3.25  |
-|        NACHOS        |    1     |  0.9  |
-| QUESO BLANCO NATURAL |    1     | 2.74  |
-|      TROPICAL S      |    2     |  1.4  |
-|        TOTAL         |          | 19.92 |
-|    BOLSA PLASTICO    |    1     | 0.15  |
-| CACAHUETE DESGRASADO |    1     | 2.75  |
-| JAMON JUGOSO LONCHAS |    1     | 1.82  |
-|        NACHOS        |    1     |  0.9  |
-| PAN BLANCO FAMILIAR  |    1     | 1.25  |
-|   PECHUGA FAMILIAR   |    1     | 7.11  |
-|   SALSA FINA KRAFT   |    1     |  2.0  |
-|      TROPICAL S      |    2     |  1.4  |
-|        TOTAL         |          | 17.38 |
-|        BANANA        |    1     | 1.68  |
-|      LECHE DESN      |    1     |  7.5  |
-|        TOTAL         |          | 9.18  |
-|        BANANA        |    1     | 1.33  |
-|    BOLSA PLASTICO    |    1     | 0.15  |
-|      GUACAMOLE       |    1     | 3.59  |
-| JAMÓN SERRANO SOBRE  |    1     |  4.1  |
-|     PAN DE LECHE     |    1     |  1.6  |
-| QUESO RALLADO PIZZA  |    1     | 1.54  |
-| TOMATE NATURAL RALLA |    1     | 1.39  |
-|      TROPICAL S      |    2     |  1.4  |
-|        TOTAL         |          | 15.1  |
-|      BRONCHALES      |    2     | 2.52  |
-| SALSA DE SOJA SALADA |    1     |  1.4  |
-|        TOTAL         |          | 3.92  |
-|   ARROZ VAPORIZADO   |    1     | 1.54  |
-|  COMPRIMIDOS DORMIR  |    1     | 3.95  |
-| COMPRIMIDOS VITAMINA |    1     |  3.0  |
-|   CÁPSULAS MEMORY    |    1     | 3.95  |
-|   MERMELADA FRESA    |    1     | 1.55  |
-|        TOTAL         |          | 13.99 |
-|    BOLSA PLASTICO    |    1     | 0.15  |
-| GALLETAS MANTEQUILLA |    1     | 2.85  |
-|        NACHOS        |    1     |  0.9  |
-|      TROPICAL S      |    2     |  1.4  |
-|        TOTAL         |          |  5.30  |
-+----------------------+----------+-------+
++----------------------+----------+--------------------+
+|         Item         | Cantidad |       Total        |
++----------------------+----------+--------------------+
+|    BEBER F SILVES    |    2     |        2.9         |
+|  GALLETITAS SALADAS  |    2     |        2.6         |
+|      TROPICAL S      |    23    |        16.1        |
+|   MIX FRUTOS ROJOS   |    2     |        3.08        |
+|       COLIFLOR       |    1     |        2.1         |
+|   PECHUGA FAMILIAR   |    6     |       44.51        |
+|  HUEVOS SUPER GRAN   |    3     |        9.75        |
+|    HUEVOS GRANDES    |    3     | 6.6000000000000005 |
+|  QUITAGRASA CITRICO  |    1     |        1.45        |
+|   RECIPIENTES RECT   |    14    |        2.4         |
+|        HELADO        |    1     |        2.85        |
+|      LECHE DESN      |    8     |       16.25        |
+|        NACHOS        |    6     |        5.4         |
+|       JAMON C        |    1     |        2.04        |
+|   GRIEGO NATURAL P   |    2     |        3.2         |
+|    BOLSA PLASTICO    |    10    | 1.4999999999999998 |
+| PAN BLANCO FAMILIAR  |    2     |        2.5         |
+|     BEBER FRESA      |    2     |        2.9         |
+|    SALSA MEXICANA    |    1     |        1.25        |
+|   ARROZ VAPORIZADO   |    3     |        4.62        |
+| QUESO BLANCO NATURAL |    3     |        8.22        |
+|         PAT          |    1     |        1.75        |
+|  ROLLO HOGAR DOBLE   |    1     |        2.2         |
+| JAMON JUGOSO LONCHAS |    3     |        5.46        |
+|   Q RALLADO FUNDIR   |    1     |        2.05        |
+|      GUACAMOLE       |    4     |       12.52        |
+|   COMINOS MOLIDOS    |    1     |        1.2         |
+|       KETCHUP        |    1     |        1.3         |
+|    SALSA RANCHERA    |    1     |        1.35        |
+|          Q           |    1     |        1.68        |
+|          kg          |   184    |       33.12        |
+|      BRONCHALES      |    6     | 7.5600000000000005 |
+| GALLETAS MANTEQUILLA |    3     |        8.55        |
+|     AVENA MOLIDA     |    1     |        1.11        |
+|       CRACKERS       |    1     |        1.95        |
+|       CERVEZA        |    3     |        2.46        |
+| QUESO RALLADO GOUDA  |    1     |        1.44        |
+|     PIZZA JAMON      |    1     |        3.5         |
+|  CHAMPÚ AC CÍTRICO   |    1     |        2.4         |
+|   GEL FRESCOR AZUL   |    1     |        0.75        |
+| BARR MUESLI FRUT SEC |    1     |        1.65        |
+| BARRITA MUESLI CHOCO |    1     |        1.4         |
+|         TOA          |    1     |        3.0         |
+|  COLIFLOR CONGELADA  |    1     |        2.05        |
+|       BROCOLI        |    1     |        2.05        |
+|        FRESÓN        |    1     |        3.86        |
+|   SALSA FINA KRAFT   |    1     |        2.0         |
+| CACAHUETE DESGRASADO |    1     |        2.75        |
+| TOMATE NATURAL RALLA |    1     |        1.39        |
+|     PAN DE LECHE     |    1     |        1.6         |
+| QUESO RALLADO PIZZA  |    1     |        1.54        |
+| JAMÓN SERRANO SOBRE  |    1     |        4.1         |
+| SALSA DE SOJA SALADA |    1     |        1.4         |
+| COMPRIMIDOS VITAMINA |    1     |        3.0         |
+|  COMPRIMIDOS DORMIR  |    1     |        3.95        |
+|   CÁPSULAS MEMORY    |    1     |        3.95        |
+|   MERMELADA FRESA    |    1     |        1.55        |
++----------------------+----------+--------------------+
+Total Cantidad: 329.00, Total Precio: 275.81

@@ -1,11 +1,9 @@
-
-Mes: November | Año: 2023
 +----------------------+----------+-------+
 |         Item         | Cantidad | Total |
 +----------------------+----------+-------+
+| ZUMO DE NARANJA EXPR |    1     |  1.3  |
+| PECHUGA FINAS HIERB  |    1     |  4.0  |
 |     AVENA MOLIDA     |    1     | 1.11  |
 |    BOLSA PLASTICO    |    1     | 0.15  |
-| PECHUGA FINAS HIERB  |    1     |  4.0  |
-| ZUMO DE NARANJA EXPR |    1     |  1.3  |
-|        TOTAL         |          | 6.56  |
 +----------------------+----------+-------+
+Total Cantidad: 4.00, Total Precio: 6.56

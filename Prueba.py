@@ -12,31 +12,28 @@ def extraer_datos_factura(texto_factura):
 
     lineas_factura = texto_factura.split("\n")
 
-    patron_descripcion = (
-        r"[^\W\d_]+(?:\s+[^\W\d_]+)*"  # Expresión regular para extraer solo texto
-    )
-
+    patron_descripcion = r"[^\W\d_]+(?:\s+[^\W\d_]+)*"
     patron_cantidad = r"(\d+)\s*[^\W\d_]+(?:\s+[^\W\d_]+)*"
-
     patron_precio_unitario = r"(\d+[.,]\d{2})\s*(?=[^\d.,\n]*\d)"
 
-    datos_factura = []
+    datos_factura = defaultdict(lambda: [0, 0.0])
     total_factura = 0.0
+    siguiente_importe = None
 
-    for linea in lineas_factura[1:]:
+    for idx, linea in enumerate(lineas_factura[1:]):
         match_descripcion = re.search(patron_descripcion, linea)
         match_cantidad = re.search(patron_cantidad, linea)
         match_precio_unitario = re.search(patron_precio_unitario, linea)
 
         if match_descripcion and match_cantidad:
             descripcion = match_descripcion.group(0).strip()
-            cantidad = match_cantidad.group(1)
+            cantidad = int(match_cantidad.group(1))
 
             if match_precio_unitario:
                 precio_unitario = float(
                     match_precio_unitario.group(1).replace(",", ".")
                 )
-                importe = precio_unitario * int(cantidad)
+                importe = precio_unitario * cantidad
             else:
                 match_importe = re.search(r"(\d+[.,]\d{2})", linea)
                 if match_importe:
@@ -44,35 +41,71 @@ def extraer_datos_factura(texto_factura):
                 else:
                     importe = None
 
+                if "BANANA" in descripcion.upper() and idx + 1 < len(lineas_factura):
+                    siguiente_linea = lineas_factura[idx + 1]
+                    match_importe_siguiente = re.search(
+                        r"(\d+[.,]\d{2})", siguiente_linea
+                    )
+                    if match_importe_siguiente:
+                        importe = float(
+                            match_importe_siguiente.group(1).replace(",", ".")
+                        )
+                elif "MANZANA GRANNY" in descripcion.upper() and idx + 1 < len(
+                    lineas_factura
+                ):
+                    siguiente_linea = lineas_factura[idx + 1]
+                    match_importe_siguiente = re.search(
+                        r"(\d+[.,]\d{2})", siguiente_linea
+                    )
+                    if match_importe_siguiente:
+                        importe = float(
+                            match_importe_siguiente.group(1).replace(",", ".")
+                        )
+
             if importe is not None:
                 importe = round(importe, 2)
-                if "kg" not in descripcion.lower():
-                    datos_factura.append((descripcion, int(cantidad), importe))
-                    total_factura += importe
+                datos_factura[descripcion][0] += cantidad
+                datos_factura[descripcion][1] += importe
+                total_factura += importe
 
     return datos_factura, round(total_factura, 2)
 
 
-base_dir = "/Users/user/Dropbox/Mac/Desktop/Projects/Python/pythonProject1/ScriptPythonMercadona"
+# El resto del código permanece igual hasta el procesamiento final
 
+base_dir = "/Users/user/Dropbox/Mac/Desktop/Projects/Python/pythonProject1/ScriptPythonMercadona"
 directorio_entrada = "ScriptPythonMercadona/PDF to TXT/"
 directorio_salida = "ScriptPythonMercadona/OutputTxtsV2/"
 
-datos_totales = defaultdict(list)
+datos_por_ano_mes = defaultdict(
+    lambda: defaultdict(lambda: defaultdict(lambda: [0, 0.0]))
+)
 
-for archivo_name in os.listdir(directorio_entrada):
-    if archivo_name.endswith(".txt"):
-        archivo_path = os.path.join(directorio_entrada, archivo_name)
-        with open(archivo_path, "r", encoding="utf-8") as archivo:
-            texto_factura = archivo.read()
-            datos_factura, _ = extraer_datos_factura(texto_factura)
-            for item, cantidad, importe in datos_factura:
-                datos_totales[item].append((cantidad, importe))
+for ano, datos_por_mes in datos_por_ano_mes.items():
+    for mes, datos_mes in datos_por_mes.items():
+        datos_agrupados = [
+            (item, cantidad, precio_total)
+            for item, (cantidad, precio_total) in datos_mes.items()
+            if item != "TOTAL"
+        ]
+        total_mes = datos_mes["TOTAL"]
+        total_cantidad_mes = total_mes[
+            0
+        ]  # Obtenemos la cantidad total de todas las facturas en este mes específico
+        tabla_mes = tabulate(
+            datos_agrupados, headers=["Item", "Cantidad", "Total"], tablefmt="pretty"
+        )
+        # Reemplazamos la variable total_cantidad por total_cantidad_mes
+        tabla_mes += f"\nTotal Cantidad: {total_cantidad_mes:.2f}, Total Precio: {total_mes[1]:.2f}"
 
-# Calcular el total de todos los ítems combinados por mes y consolidar datos
-total_por_mes = defaultdict(float)
-factura_grande_por_mes = defaultdict(list)
+        nombre_archivo = f"datos_facturas_{ano}_{mes}.txt"
+        ruta_archivo = os.path.join(directorio_salida, nombre_archivo)
+        with open(ruta_archivo, "w", encoding="utf-8") as archivo_salida:
+            archivo_salida.write(tabla_mes)
 
+# Ahora, el valor total_cantidad contiene la suma total de todas las cantidades
+
+# Inicializar la variable total_cantidad fuera del bucle externo
 for archivo_name in os.listdir(directorio_entrada):
     if archivo_name.endswith(".txt"):
         archivo_path = os.path.join(directorio_entrada, archivo_name)
@@ -83,22 +116,13 @@ for archivo_name in os.listdir(directorio_entrada):
             ano = fecha[:4]
             mes = fecha[4:6]
             nombre_mes = calendar.month_name[int(mes)]
-            # Almacenar los datos de la factura para la consolidación
-            factura_grande_por_mes[(ano, nombre_mes)].extend(datos_factura)
-            # Calcular el total de la factura sumando los importes
-            total_por_mes[(ano, nombre_mes)] += total_factura
+            # Sumar la cantidad total de todas las facturas en este mes específico
+            total_cantidad_mes = sum(cantidad for cantidad, _ in datos_factura.values())
+            for item, (cantidad, precio_total) in datos_factura.items():
+                datos_por_ano_mes[ano][nombre_mes][item][0] += cantidad
+                datos_por_ano_mes[ano][nombre_mes][item][1] += precio_total
+            # Actualizar el total de cantidad por mes con la cantidad total de todas las facturas
+            datos_por_ano_mes[ano][nombre_mes]["TOTAL"][0] += total_cantidad_mes
+            datos_por_ano_mes[ano][nombre_mes]["TOTAL"][1] += total_factura
 
-# Guardar la factura consolidada por mes en archivos de texto
-for (ano, mes), total_mes in total_por_mes.items():
-    nombre_archivo_mes = f"Factura_Consolidada_{mes.lower()}_{ano}.txt"
-    ruta_archivo_mes = os.path.join(directorio_salida, nombre_archivo_mes)
-    with open(ruta_archivo_mes, "w", encoding="utf-8") as archivo_salida_mes:
-        archivo_salida_mes.write(f"Factura Consolidada para {mes} {ano}\n\n")
-        archivo_salida_mes.write(
-            tabulate(
-                factura_grande_por_mes[(ano, nombre_mes)],
-                headers=["Item", "Cantidad", "Total"],
-                tablefmt="plain",
-            )
-        )
-        archivo_salida_mes.write(f"\n\nTotal del Mes: {total_mes:.2f}\n")
+# Ahora, el valor total_cantidad contiene la suma total de todas las cantidades
