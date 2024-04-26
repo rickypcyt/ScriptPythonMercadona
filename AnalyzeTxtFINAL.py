@@ -29,27 +29,15 @@ def extraer_datos_factura(texto_factura):
             descripcion = match_descripcion.group(0).strip()
             cantidad = match_cantidad.group(1)
 
-            if "BANANA" in descripcion.upper() and not siguiente_importe:
-                siguiente_linea_idx = idx + 1
-                for _ in range(1):  # Saltar las dos primeras líneas después de BANANA
-                    siguiente_linea_idx += 1
-                    if siguiente_linea_idx >= len(lineas_factura):
-                        break
-                if siguiente_linea_idx < len(lineas_factura):
-                    siguiente_linea = lineas_factura[siguiente_linea_idx]
-                    match_importe_siguiente = re.search(
-                        r"(\d+[.,]\d{2})", siguiente_linea
-                    )
-                    if match_importe_siguiente:
-                        siguiente_importe = float(
-                            match_importe_siguiente.group(1).replace(",", ".")
-                        )
-
-            if "MANZANA GRANNY" in descripcion.upper() and not siguiente_importe:
+            if (
+                "BANANA" in descripcion.upper()
+                or "MANZANA GRANNY" in descripcion.upper()
+                or "LIMON" in descripcion.upper()
+            ) and not siguiente_importe:
                 siguiente_linea_idx = idx + 1
                 for _ in range(
                     1
-                ):  # Saltar las dos primeras líneas después de MANZANA GRANNY
+                ):  # Saltar las dos primeras líneas después de BANANA o MANZANA GRANNY
                     siguiente_linea_idx += 1
                     if siguiente_linea_idx >= len(lineas_factura):
                         break
@@ -63,10 +51,11 @@ def extraer_datos_factura(texto_factura):
                             match_importe_siguiente.group(1).replace(",", ".")
                         )
 
-            if "BANANA" in descripcion.upper() and siguiente_importe:
-                importe = siguiente_importe
-                siguiente_importe = None
-            elif "MANZANA GRANNY" in descripcion.upper() and siguiente_importe:
+            if (
+                "BANANA" in descripcion.upper()
+                or "MANZANA GRANNY" in descripcion.upper()
+                or "LIMON" in descripcion.upper()
+            ) and siguiente_importe:
                 importe = siguiente_importe
                 siguiente_importe = None
             elif match_precio_unitario:
@@ -81,18 +70,11 @@ def extraer_datos_factura(texto_factura):
                 else:
                     importe = None
 
-                if "BANANA" in descripcion.upper() and idx + 1 < len(lineas_factura):
-                    siguiente_linea = lineas_factura[idx + 1]
-                    match_importe_siguiente = re.search(
-                        r"(\d+[.,]\d{2})", siguiente_linea
-                    )
-                    if match_importe_siguiente:
-                        importe = float(
-                            match_importe_siguiente.group(1).replace(",", ".")
-                        )
-                elif "MANZANA GRANNY" in descripcion.upper() and idx + 1 < len(
-                    lineas_factura
-                ):
+                if (
+                    "BANANA" in descripcion.upper()
+                    or "MANZANA GRANNY" in descripcion.upper()
+                    or "LIMON" in descripcion.upper()
+                ) and idx + 1 < len(lineas_factura):
                     siguiente_linea = lineas_factura[idx + 1]
                     match_importe_siguiente = re.search(
                         r"(\d+[.,]\d{2})", siguiente_linea
@@ -152,7 +134,9 @@ for ano, datos_por_mes in sorted(datos_por_ano_mes.items()):
         tabla_mes = tabulate(
             datos_agrupados, headers=["Item", "Cantidad", "Total"], tablefmt="pretty"
         )
-        tabla_mes += f"\nTotal Cantidad: {total_cantidad_mes:.2f}, Total Precio: {total_mes[1]:.2f}"
+        tabla_mes += (
+            f"\nTotal Cantidad: {total_cantidad_mes:}, Total Precio: {total_mes[1]:.2f}"
+        )
 
         nombre_archivo = f"datos_facturas_{ano}_{mes}.txt"
         ruta_archivo = os.path.join(directorio_salida, nombre_archivo)

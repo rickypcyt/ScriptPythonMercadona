@@ -59,4 +59,4 @@
 | TOMATE NATURAL RALLA |    1     | 1.39  |
 |      TROPICAL S      |    23    | 16.1  |
 +----------------------+----------+-------+
-Total Cantidad: 153.00, Total Precio: 259.27
+Total Cantidad: 153, Total Precio: 259.27

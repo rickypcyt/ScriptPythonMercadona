@@ -25,10 +25,11 @@
 |    HUEVOS GRANDES    |    3     |  6.6  |
 |  ICE TEA MELOCOTÓN   |    1     | 0.95  |
 |   INFUSION DORMIR    |    1     | 1.05  |
-|   ISOTONICO LIMON    |    3     | 5.97  |
+|   ISOTONICO LIMON    |    3     | 5.64  |
 | JAMON JUGOSO LONCHAS |    3     | 5.46  |
 |      LECHE DESN      |    2     |  2.5  |
 |     LECHE ENTERA     |    1     | 0.91  |
+|        LIMON         |    1     |  0.5  |
 |   MANZANILLA MIEL    |    1     | 1.15  |
 | MERMELADA ARÁNDANOS  |    1     | 1.95  |
 | PAN BLANCO FAMILIAR  |    1     | 1.25  |
@@ -51,4 +52,4 @@
 | ZUMO DE NARANJA EXPR |    1     | 1.75  |
 |    ZUMO NARANJA C    |    1     | 1.75  |
 +----------------------+----------+-------+
-Total Cantidad: 91.00, Total Precio: 164.97
+Total Cantidad: 92, Total Precio: 165.14

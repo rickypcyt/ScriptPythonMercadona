@@ -19,8 +19,8 @@
 |    GRIEGO NATURAL    |    1     | 2.45  |
 |      GUACAMOLE       |    1     | 1.75  |
 |        HELADO        |    1     |  2.8  |
-|   HUEVOS CAMPEROS    |    16    | 1.59  |
-|   ISOTONICO LIMON    |    1     | 1.95  |
+|   HUEVOS CAMPEROS    |    1     | 1.59  |
+|   ISOTONICO LIMON    |    1     | 0.95  |
 |     LECHE ENTERA     |    4     | 3.64  |
 |     LOMO GRUESO      |    1     | 4.86  |
 |    LS ENS GRANDE     |    3     | 15.0  |
@@ -45,4 +45,4 @@
 |      UVA ROJA S      |    1     | 1.96  |
 | ZUMO DE NARANJA EXPR |    1     | 1.75  |
 +----------------------+----------+-------+
-Total Cantidad: 78.00, Total Precio: 125.55
+Total Cantidad: 63, Total Precio: 124.55
