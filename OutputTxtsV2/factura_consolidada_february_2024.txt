@@ -1,5 +1,0 @@
-Factura Consolidada para February 2024
-
-Item    Cantidad    Total
-
-Total del Mes: 242.69

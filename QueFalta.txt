@@ -3,9 +3,11 @@
 
 Hay que corregir nombre de items para que no salgan numeros - LISTO PAPI
 
-Hay que agrupar items y que el script los detecte y los agrupe.
+Hay que agrupar items y que el script los detecte y los agrupe. LISTO PAPA
 
 Idea: Que extraiga solo el nombre de la descripcion del producto y solo el importe y que no tome en cuneta los numeros en la descripcion. LISTO
 
- En otro codigo que identificque por mes cuantos items tienen  mismo nombre y que sume las cantidades. 
+ En otro codigo que identificque por mes cuantos items tienen  mismo nombre y que sume las cantidades. LISTO PAPA
+
+ QUE CHULADA PAPA 
  
