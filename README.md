@@ -36,6 +36,7 @@ This is the Input:
 The script 'Pdf2Txt.py' converts the pdf to text so Python can analyze it and manipulate it.
 
 Output:
+
 ![image](https://github.com/rickypcyt/ScriptPythonMercadona/assets/105986682/b4193772-5a0e-4c57-a9b3-ae41ad36774d)
 
 
