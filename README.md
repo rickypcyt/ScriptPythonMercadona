@@ -1,4 +1,4 @@
-# Invoice Analyzer
+# Mecadona Invoice Analyzer
 
 ## Overview
 
