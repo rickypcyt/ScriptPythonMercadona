@@ -30,6 +30,7 @@ This Python project is designed to analyze invoices by extracting information fr
 ## How does it work
 
 This is the Input:
+
 ![image](https://github.com/rickypcyt/ScriptPythonMercadona/assets/105986682/2e1550cb-b951-4cef-b7ab-76a758920e9f)
 
 The script 'Pdf2Txt.py' converts the pdf to text so Python can analyze it and manipulate it.
