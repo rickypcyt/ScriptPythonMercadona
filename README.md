@@ -1,4 +1,4 @@
-# Mecadona Invoice Analyzer
+# Mercadona Invoice Analyzer
 
 ## Overview
 
