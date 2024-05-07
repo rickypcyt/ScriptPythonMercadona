@@ -5,7 +5,6 @@ import os
 # Configuración de conexión IMAP para Gmail
 IMAP_SERVER = 'imap.gmail.com'
 EMAIL = 'rickypcyt@gmail.com'
-PASSWORD = 'bxmy mmmr phxl qzts'
 REMITENTE = 'ticket_digital@mail.mercadona.com'
 
 # Función para decodificar los encabezados del correo electrónico
